@@ -1,0 +1,10 @@
+# package directories
+node_modules
+jspm_packages
+
+# Angular directories
+angular/node_modules
+angular/package-lock.json
+
+#System Files
+package-lock.json
