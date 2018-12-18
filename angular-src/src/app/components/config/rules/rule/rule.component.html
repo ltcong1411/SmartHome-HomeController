@@ -1,0 +1,127 @@
+<div bsModal #smModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Are you sure you want to delete <b>{{rule.name}}</b> ?</h4>
+      </div>
+      <div class="modal-body">
+        <button type="button" class="btn btn-success btn-modal" (click)="smModal.hide()" (click)="deleteRule()">Yes</button>
+        <button type="button" class="btn btn-danger btn-modal" (click)="smModal.hide()">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- rule -->
+<div class="rule">
+  <div class="panel panel-primary panel-pricing">
+    <div class="panel-heading">
+      <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+      <h3 class="ruleName" (click)="runrule()">{{rule.name}}</h3>
+      <div class="x-icon" >
+        <i class="fa fa-times" aria-hidden="true" (click)="smModal.show()"></i>
+      </div>
+    </div>
+    <div class="row scirpt-body">
+      <div class="col-md-4">
+        <div class="time-date-picker">
+          <div class="time-picker">
+            <p>Time</p>
+            <div class="all-day-checkbox">
+              <div class="radio">
+                <label>
+                  <input type="radio" [(checked)]="isAllDayChecked" (click)="clickAllDayCheckbox(true)">
+                  All day
+                </label>
+                <label>
+                  <input type="radio" [(checked)]="!isAllDayChecked" (click)="clickAllDayCheckbox(false)">
+                  Period
+                </label>
+              </div>
+            </div>
+            <div class="from-to-time" [hidden]="isAllDayChecked">
+              <div class="from-time">
+                <h4 class="from" (click)="fromTimePickerHidden=false;TimeButtonsHidden=false;">From</h4>
+                <div class="time" [hidden]="!fromTimePickerHidden">
+                  <button class="btn btn-time btn-from-time"
+                          type="button"
+                          name="button"
+                          (click)="fromTimePickerHidden=false;TimeButtonsHidden=false;">
+                          {{fromTimePicker}}
+                  </button>
+                </div>
+                <div class="timepicker" [hidden]="fromTimePickerHidden">
+                  <timepicker [(ngModel)]="fromTime"></timepicker>
+                </div>
+              </div>
+              <div class="to-time">
+                <h4 class="to" (click)="toTimePickerHidden=false;TimeButtonsHidden=false;">To </h4>
+                <div class="time" [hidden]="!toTimePickerHidden">
+                  <button class="btn btn-time btn-to-time"
+                          type="button"
+                          name="button"
+                          (click)="toTimePickerHidden=false;TimeButtonsHidden=false;isNextDay=false">
+                          {{toTimePicker}}
+                  </button>
+                </div>
+                <h4 class="next-day" [hidden]="!isNextDay">next day</h4>
+                <div class="timepicker" [hidden]="toTimePickerHidden">
+                  <timepicker [(ngModel)]="toTime"></timepicker>
+                </div>
+              </div>
+            </div>
+            <div class="picker-save" [hidden]="TimeButtonsHidden">
+              <button class="btn btn-primary time-btn-ok"
+                      (click)="clickTimeOkBtn()">OK</button>
+            </div>
+          </div>
+          
+          <div class="repeat">
+            <p>Repeat</p>
+            <input type="text" name="" value="" (click)="repeatDayHidden=false" [hidden]="!repeatDayHidden" [(ngModel)]="repeatDaysStr">
+            <div class="day-picker" [hidden]="repeatDayHidden">
+              <div class="checkbox" *ngFor="let day of daysOfWeekFull;let i = index">
+                <label>
+                  <input class="checkbox-input" type="checkbox" [(ngModel)]="repeatDays[i]">
+                  {{day}}
+                </label>
+              </div>
+              <div class="picker-save">
+                <button class="btn btn-primary repeat-btn-ok"
+                        (click)="clickRepeatOkBtn()">OK</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8 deivce-picker">
+
+        <app-ifconditions [ruleId]="ruleId"
+                          [ifCondtions]="ifCondtions"
+                          [listOfDevicesInHouse]="listOfDevicesInHouse"
+                          [listOfUsers] = "listOfUsers"
+                          [editHidden]="editHidden"
+                          (updateIfCond)="updateIfCond($event)">
+        </app-ifconditions>
+        <app-thenactions [ruleId]="ruleId"
+                        [thenActions]="thenActions"
+                         [editHidden]="editHidden"
+                         [listOfDevicesInHouse]="listOfDevicesInHouse"
+                         (updateActions)="updateActions()">
+        </app-thenactions>
+
+        <div class="footer">
+          <div class="edit-save">
+            <div class="btn-edit-save"  [hidden]="btnSaveHidden" (click)="clickSaveBtn()">
+              <button class="btn" type="button" name="button">Save</button>
+            </div>
+            <div class="btn-edit">
+              <button class="btn" type="button" name="button" (click)="editHidden=false;btnSaveHidden=false">Edit <i class="fa fa-pencil-square" aria-hidden="true"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- rule -->

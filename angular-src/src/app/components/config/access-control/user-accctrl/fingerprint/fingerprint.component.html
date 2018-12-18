@@ -1,0 +1,73 @@
+<div bsModal #smModal3="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h4 class="modal-title">Delete all data</h4> -->
+        <div class="picture fingerprint delete-fingerprint">
+          <img src="./assets/images/access-control/fingerprint3.png"
+               class="img-circle fingerprint-picture fingerprint-picture-gray"
+               alt="Responsive image">
+          <h4  style="color:#737373; line-height: 26px;">Are you sure you want to delete all fingerprint information of the current user?</h4>
+        </div>
+      </div>
+      <div class="modal-body">
+        <button type="button" class="btn btn-modal" (click)="smModal3.hide()">No</button>
+        <button type="button" class="btn btn-modal" (click)="smModal3.hide();deleteAllFingerprint()">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div bsModal #smModal2="bs-modal" class="modal fade modal2" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" (focusout)="unSubscribe();smModal2.hide()">
+  <div class="modal-dialog modal-sm modal-add-fingerprint" >
+    <div class="modal-content enrol-fingerprint">
+      <div class="modal-header">
+        <div class="picture add-fingerprint">
+           <img src="./assets/images/access-control/fingerprint4.png"
+                class="img-circle fingerprint-picture"
+                alt="Responsive image">
+          <h4>{{sensorMessage}} <br> {{sensorMessage2}}</h4>
+        </div>
+      </div>
+      <div class="modal-body">
+        <!-- <button type="button" class="btn btn-success btn-modal" (click)="smModal2.hide()">Yes</button>
+        <button type="button" class="btn btn-danger btn-modal" (click)="smModal2.hide()">No</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-5">
+    <div class="picture fingerprint">
+      <img src="./assets/images/access-control/fingerprint3.png"
+           class="img-circle fingerprint-picture fingerprint-picture-gray"
+           alt="Responsive image"
+            (click)="smModal3.show()">
+      <h4  style="color:#9a8484">Delete all data</h4>
+    </div>
+  </div>
+  <hr class="vertical">
+  <div class="col-md-5">
+    <div class="picture fingerprint">
+      <img src="./assets/images/access-control/fingerprint3.png"
+           class="img-circle fingerprint-picture"
+           alt="Responsive image"
+            (click)="smModal2.show();connectSensor()">
+      <h4>Add a fingerprint</h4>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="button">
+    <div class="btn-back">
+      <button class="btn"
+          type="button"
+          name="button"
+          (click)="back()">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
+     </button>
+    </div>
+  </div>
+</div>

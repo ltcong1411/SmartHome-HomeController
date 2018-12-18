@@ -1,0 +1,169 @@
+.row{
+  margin: 0px;
+  margin-left: 54px;
+  color: #5f5f5f;
+  font-size: 17px;
+}
+
+.col-md-4{
+  padding: 0px;
+}
+
+/*.device-name{
+  width: auto;
+}*/
+
+ .operator, .value{
+  text-align: center;
+  font-size: 16px;
+}
+
+.remove-device{
+  margin-right: 5px;
+}
+
+.operator{
+  width: auto;
+  min-width: 47%;
+}
+.value{
+  padding: 0px;
+  width: auto;
+}
+
+.menu{
+
+  padding: 0px;
+  width: 10.666667%;
+}
+
+.btn:focus, .btn:hover{
+  color: black;
+  border: 0px;
+  outline: inherit;
+}
+
+.btn-deviceName, .btn-operator, .btn-value{
+  font-size: 16px;
+  text-transform: none;
+  font-weight: 400;
+}
+
+.btn-menu{
+  padding-left: 12px;
+  padding-right: 21px;
+}
+
+/*.add-device, .remove-device, .menu{
+  font-size: 20px;
+  padding: 13px 0px;
+}*/
+
+.operator>p, .value>p{
+  margin: 0px;
+}
+
+.device-name>p{
+  margin: 0px 0px 0px 15px;
+}
+
+/*.operator>p{
+  min-width: 240px;
+}*/
+
+.scrollable-menu-1 {
+    height: auto;
+    max-height: 400px;
+    min-width: 300px;
+    min-height: 38px;
+    overflow-x: hidden;
+    cursor: pointer;
+}
+
+.operator-string{
+  position: absolute;
+  left: 25%;
+}
+
+.caret-icon{
+  float: right;
+}
+
+.device{
+  padding-left: 62px;
+  text-transform: none;
+  cursor: pointer;
+  color: #868686;
+  text-decoration: none;
+  width: auto;
+  display: block;
+  font-size: 16px;
+}
+
+
+.device:hover{
+  color: #404040;
+  font-weight: bold;
+}
+
+
+
+.input-value>input{
+  width: 100%;
+  background-color: #dddddd;
+  text-align: center;
+}
+
+.form-control{
+  padding: 12px 0px;
+}
+
+/*modal*/
+.modal-title {
+  text-align: center;
+}
+
+.modal-body{
+  margin: 0 auto;
+  text-align: center;
+}
+
+.btn-modal {
+  min-width: 80px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.form-group {
+    float: left;
+    margin-right: 20px;
+}
+
+.room-floor{
+    font-size: 19px;
+    font-weight: 700;
+    color: #6d6d6d;
+    text-decoration: none;
+    padding-left: 40px;
+}
+
+.list-of-sensors, .list-of-lights, .list-of-users{
+  padding: 4px 0px;
+  margin: 4px 0px;
+}
+
+.list-of-sensors:hover, .list-of-lights:hover, .list-of-users:hover{
+  background-color: whitesmoke;
+}
+/*modal*/
+
+.scrollable-menu-2{
+  cursor: pointer;
+}
+
+md-slider{
+  /*margin-left: -133%;*/
+  min-width: 175px;
+  float: right;
+  margin-right: 23px;
+}

@@ -1,0 +1,78 @@
+<div bsModal #smModal3="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h4 class="modal-title">Delete all data</h4> -->
+        <div class="picture face delete-face">
+          <img src="./assets/images/access-control/face-recognition.png"
+               class="img-circle face-picture face-picture-gray"
+               alt="Responsive image">
+          <h4  style="color:#737373; line-height: 26px;">Are you sure you want to delete all face information of the current user?</h4>
+        </div>
+      </div>
+      <div class="modal-body">
+        <button type="button" class="btn btn-modal" (click)="smModal3.hide()">No</button>
+        <button type="button" class="btn btn-modal" (click)="smModal3.hide();deleteAllface()">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div bsModal #smModal2="bs-modal" class="modal fade modal2" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-add-face" >
+    <div class="modal-content enrol-face">
+      <div class="modal-header">
+        <!-- <h4 class="modal-title">Add face</h4> -->
+        <div class="picture add-face">
+          <!-- <img src="https://media.giphy.com/media/xUPGcKemPMzGvOzqec/giphy.gif"
+               class="img-circle face-picture"
+               alt="Responsive image"> -->
+           <!-- <img src="./assets/images/access-control/face-recognition.png"
+                class="img-circle face-picture"
+                alt="Responsive image"> -->
+            <!-- <img class="camera-stream" src="http://127.0.0.1:8080/cam.mjpg"/> -->
+          <h4>{{sensorMessage}} <br> {{sensorMessage2}}</h4>
+        </div>
+      </div>
+      <div class="modal-body">
+        <!-- <button type="button" class="btn btn-success btn-modal" (click)="smModal2.hide()">Yes</button>
+        <button type="button" class="btn btn-danger btn-modal" (click)="smModal2.hide()">No</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-5">
+    <div class="picture face">
+      <img src="./assets/images/access-control/face-recognition.png"
+           class="img-circle face-picture face-picture-gray"
+           alt="Responsive image"
+            (click)="smModal3.show()">
+      <h4  style="color:#9a8484">Delete all data</h4>
+    </div>
+  </div>
+  <hr class="vertical">
+  <div class="col-md-5">
+    <div class="picture face">
+      <img src="./assets/images/access-control/face-recognition.png"
+           class="img-circle face-picture"
+           alt="Responsive image"
+            (click)="smModal2.show();connectSensor()">
+      <h4>Add new face</h4>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="button">
+    <div class="btn-back">
+      <button class="btn"
+          type="button"
+          name="button"
+          (click)="back()">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
+     </button>
+    </div>
+  </div>
+</div>

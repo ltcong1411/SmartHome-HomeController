@@ -1,0 +1,29 @@
+<div class="col-md-8">
+    <!-- rule -->
+    <div class="rule" *ngFor="let rule of rules">
+      <app-rule [rule]="rule"
+                [listOfDevicesInHouse]="listOfDevicesInHouse"
+                [listOfUsers]="listOfUsers"
+                (removeRule)="getListOfRules()"></app-rule>
+    </div>
+    <!-- rule -->
+
+    <!-- addrule -->
+    <div class="addRule">
+      <button type="button" class="fa fa-plus-circle fa-2x addRuleIcon" (click)="checkClick=!checkClick"></button>
+      <div class="input" [hidden]="checkClick" >
+        <form (submit)="addruleSubmit()">
+          <div class="form-group">
+            <input type="text"
+            class="form-control"
+            [(ngModel)]="newRuleName" name="newRuleName"
+            placeholder="rule name"
+            required>
+          </div>
+          <input type="submit" class="btn btn-success btn-add-rule" value="Add">
+        </form>
+      </div>
+    </div>
+    <!-- addrule -->
+
+</div>

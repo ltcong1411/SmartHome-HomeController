@@ -1,0 +1,25 @@
+.background-image {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  /*z-index: 1;*/
+  display: block;
+  background-image: url("http://cdn.home-designing.com/wp-content/uploads/2014/05/3-Headboard-feature-wall.jpeg");
+  background-repeat: no-repeat;
+  background-size: auto;
+  height:100vh;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
+
+.container{
+  /*position: fixed;*/
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}

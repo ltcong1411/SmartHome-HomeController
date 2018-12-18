@@ -1,0 +1,8 @@
+body {
+    background-color: #f6f6f6;
+}
+
+.flashMessage {
+  text-align: center;
+  border-radius: 0;
+}

@@ -1,0 +1,21 @@
+<div class="dimmable"  *ngIf="light.dimmable==true && light.typeOfLight!=='Air'" >
+  <a class="list-group-item">{{light.name}}</a>
+  <md-slider [thumb-label]="true" [(ngModel)]="lightValue" (input)="getSliderValue($event.value)"></md-slider>
+  <div [ngClass]="light.dimmable==true?'hidden-xs':''" >
+    <ui-switch [(ngModel)]="switchValue" size="medium-v2" (click)="getSwitchValue_Dimmer(switchValue)"></ui-switch>
+  </div>
+</div>
+
+<div class="dimmable-Air"  *ngIf="light.typeOfLight=='Air' && light.dimmable==true" >
+  <a class="list-group-item">{{light.name}}</a>
+  <md-slider min="18" max="30" step="1" [thumb-label]="true" [(ngModel)]="lightValue" (input)="getSliderValue($event.value)"></md-slider>
+  <div [ngClass]="light.dimmable==true?'hidden-xs':''" >
+    <ui-switch [(ngModel)]="switchValue" size="medium-v2" (click)="getSwitchValue_Dimmer(switchValue)"></ui-switch>
+  </div>
+</div>
+
+<div class="not-dimmable" *ngIf="light.dimmable==false" >
+  <a class="list-group-item">{{light.name}}</a>
+  <input [(colorPicker)]="color" (colorPickerChange)="getColor($event)" [style.background]="color" *ngIf="light.typeOfLight=='RGB'">
+  <ui-switch [(ngModel)]="lightValue" size="medium-v2" (click)="getSwitchValue(lightValue)"></ui-switch>
+</div>

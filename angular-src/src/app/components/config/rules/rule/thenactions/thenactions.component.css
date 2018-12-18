@@ -1,0 +1,11 @@
+.then-actions{
+  padding-left: 20px;
+  margin-bottom: 17px;
+  border-bottom: 1px solid #dfd7ca;
+  color: #545454;
+  margin-top: 60px;
+}
+
+.then-actions>h3{
+  font-size: 22px;
+}

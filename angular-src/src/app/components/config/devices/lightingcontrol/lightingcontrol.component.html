@@ -1,0 +1,96 @@
+<!-- modal -->
+<div bsModal #smModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Are you sure you want to delete <b>{{lightingControl.deviceCode}}</b> ?</h4>
+      </div>
+      <div class="modal-body">
+        <button type="button" class="btn btn-danger btn-modal" (click)="smModal.hide()">No</button>
+        <button type="button" class="btn btn-success btn-modal" (click)="smModal.hide()" (click)="deleteDevice()">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- modal -->
+
+<!-- item -->
+<div class="panel panel-primary panel-pricing">
+    <div class="panel-heading">
+      <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+      <h3 class="deviceName">Lighting Control #{{lightingControl.deviceCode}}</h3>
+      <!-- <div class="switch">
+        <ui-switch [(ngModel)]="permission" (click)="changePermission()" color="inherit" size="medium-v2"></ui-switch>
+      </div> -->
+      <i class="fa fa-times" aria-hidden="true" (click)="smModal.show()" style="float:right"></i>
+    </div>
+    <div class="panel-body">
+      <div class="panel-body-content">
+        <div class="panel-body-icon">
+          <i class="fa fa-home" aria-hidden="true"></i>
+        </div>
+        <div class="btn-group panel-body-btn">
+          <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"> {{selectedFloor}}</a>
+          <ul class="dropdown-menu">
+            <li *ngFor="let floor of listOfFloors" (click)="selectFloor(floor);saveBtnHidden=false"><a> {{floor.name}}</a></li>
+          </ul>
+        </div>
+        <div class="panel-body-icon">
+          <i class="fa fa-caret-right" aria-hidden="true"></i>
+        </div>
+        <div class="btn-group panel-body-btn">
+          <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"> {{selectedRoom}}</a>
+          <ul class="dropdown-menu">
+              <li *ngFor="let room of listOfRooms" (click)="selectRoom(room);saveBtnHidden=false"><a> {{room.name}}</a></li>
+          </ul>
+        </div>
+        <!-- <span class="connect">{{permission?'Connected':'Disconnected'}}</span> -->
+        <!-- <p class="floor-room"> 1st Floor / Bedroom</p> -->
+      </div>
+      </div>
+
+    <div class="panel-footer">
+      <table class="table">
+        <thead class="thead-default">
+          <tr>
+            <th>ID</th>
+            <th>Device Name</th>
+            <th>Type</th>
+            <th>Dimmable</th>
+            <th>Power(W)</th>
+            <th>Life time(H)</th>
+            <!-- <th>Status</th> -->
+          </tr>
+        </thead>
+        <tbody (keyup)="showSaveBtn()">
+          <tr *ngFor="let light of lightingControl.lights; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td><input type="text" (blur)="edit(light._id, $event)" name="name" value="{{light.name}}"></td>
+            <td>
+               <div class="btn-group">
+                 <input type="text" (blur)="edit(light._id, $event)" name="type" value="{{light.typeOfLight}}"
+                          data-toggle="dropdown">
+                 <ul class="dropdown-menu kindOfLight">
+                    <li (click)="selectKindOfLight(light._id, 'Bulb')"><a>Bulb</a></li>
+                    <li (click)="selectKindOfLight(light._id, 'Compact')"><a>Compact</a></li>
+                    <li (click)="selectKindOfLight(light._id, 'Fluorescent')"><a>Fluorescent lamp</a></li>
+                    <li (click)="selectKindOfLight(light._id, 'Neon')"><a>Neon</a></li>
+                 </ul>
+               </div>
+            </td>
+            <td><span class="dimmable">{{light.dimmable}}</span></td>
+            <!-- <td>  <input type="text" (blur)="edit(light._id, $event)" name="type" value="{{light.dimmable}}"></td> -->
+            <td><input type="text" (blur)="edit(light._id, $event)" name="power" value="{{light.power}}"></td>
+            <td><input type="text" (blur)="edit(light._id, $event)" name="life_time" value="{{light.life_time}}"></td>
+            <!-- <td ><input type="text" (blur)="edit(light._id, $event)" name="status" value="null"  style="width: 50px"></td> -->
+          </tr>
+        </tbody>
+      </table>
+      <div  [hidden]="saveBtnHidden" class="save">
+        <button class="btn btn-primary btn-save" type="button" name="button" (click)="save()" >Save</button>
+      </div>
+      <div class="test">
+      </div>
+    </div>
+</div>
+<!-- /item -->

@@ -1,0 +1,16 @@
+<div bsModal #smModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"> <b>WARNING</b></h4>
+        <img class="alarm-bell" src="./assets/images/security/alarm-bell.png" alt="Smiley face" height="200" width="200">
+        <h4 class="modal-title"> <b>Emergency Alert</b></h4>
+      </div>
+      <div class="modal-body">
+        <button type="button" class="btn btn-success btn-modal" (click)="smModal.hide()" (click)="turnOffAlert()">Turn off</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-security-event (showModal)="smModal.show();showModal($event)"></app-security-event>

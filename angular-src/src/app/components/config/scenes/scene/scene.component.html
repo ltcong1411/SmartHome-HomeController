@@ -1,0 +1,130 @@
+<div bsModal #smModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Are you sure you want to delete <b>{{scene.name}}</b> ?</h4>
+      </div>
+      <div class="modal-body">
+        <button type="button" class="btn btn-success btn-modal" (click)="smModal.hide()" (click)="deleteScene()">Yes</button>
+        <button type="button" class="btn btn-danger btn-modal" (click)="smModal.hide()">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- scene -->
+<div class="scene">
+  <div class="panel panel-primary panel-pricing">
+    <div class="panel-heading">
+      <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+      <h3 class="sceneName" (click)="runScene()">{{scene.name}}</h3>
+      <div class="x-icon" >
+        <i class="fa fa-times" aria-hidden="true" (click)="smModal.show()"></i>
+      </div>
+    </div>
+    <div class="row scirpt-body">
+      <div class="col-md-4">
+        <div class="time-date-picker">
+          <div class="date-picker">
+            <p>Date</p>
+            <ng2-datepicker [options]="options" [(ngModel)]="date" (click)="btnSaveHidden=false" (outputEvents)="datePickerEvent($event)" ></ng2-datepicker>
+          </div>
+          <div class="time-picker">
+            <p>Time</p>
+            <div class="time" [hidden]="!timePickerHidden">
+              <button class="btn btn-time" type="button" name="button" (click)="timePickerHidden=false;TimeButtonsHidden=false;">{{timePicker}}</button>
+            </div>
+            <div class="timepicker" [hidden]="timePickerHidden">
+              <timepicker [(ngModel)]="time"></timepicker>
+            </div>
+            <div class="picker-save" [hidden]="TimeButtonsHidden">
+              <button class="btn btn-primary time-btn-ok"
+                      (click)="clickTimeOkBtn()">OK</button>
+              <button class="btn btn-primary time-btn-clear"
+                      (click)="clickClearOkBtn()">Clear</button>
+            </div>
+          </div>
+          <div class="repeat">
+            <p>Repeat</p>
+            <input type="text" name="" value="" (click)="repeatDayHidden=false" [hidden]="!repeatDayHidden" [(ngModel)]="repeatDaysStr">
+            <div class="day-picker" [hidden]="repeatDayHidden">
+              <div class="checkbox" *ngFor="let day of daysOfWeekFull;let i = index">
+                <label>
+                  <input type="checkbox" [(ngModel)]="repeatDays[i]">
+                  {{day}}
+                </label>
+              </div>
+              <div class="picker-save">
+                <button class="btn btn-primary repeat-btn-ok"
+                        (click)="clickRepeatOkBtn()">OK</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="picker-save" [hidden]="TimeButtonsHidden">
+          <button class="btn btn-primary btn-ok"
+                  (click)="clickOkBtn()">OK</button>
+        </div> -->
+      </div>
+      <div class="col-md-8 deivce-picker">
+
+        <!-- Devices -->
+        <div class="listOfDevices" *ngFor="let room of rooms">
+          <app-room-scene  [sceneId] = "scene._id"
+                          [room]="room"
+                          [editHidden]="editHidden"
+                          (remove)="removeRoom($event)"></app-room-scene>
+        </div>
+
+
+        <!-- room -->
+        <div class="panel-body add-room" [hidden]="editHidden" (click)="this.btnSaveHidden = false">
+          <div class="panel-body-content">
+            <div class="add-room-btn" (click)="selectRoomHidden=!selectRoomHidden">
+              <div class="panel-body-icon">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+              </div>
+              <div class="btn-group panel-body-btn">
+                <a class="btn dropdown-toggle"> Add room</a>
+              </div>
+            </div>
+            <div class="select-room" [hidden]="selectRoomHidden">
+              <div class="panel-body-icon">
+                <i class="fa fa-home" aria-hidden="true"></i>
+              </div>
+              <div class="btn-group panel-body-btn">
+                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">{{selectedFloor}}</a>
+                <ul class="dropdown-menu">
+                  <li *ngFor="let floor of listOfFloors" (click)="selectFloor(floor)"><a> {{floor.name}}</a></li>
+                </ul>
+              </div>
+              <div class="panel-body-icon">
+                <i class="fa fa-caret-right" aria-hidden="true"></i>
+              </div>
+              <div class="btn-group panel-body-btn">
+                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">{{selectedRoom}}</a>
+                <ul class="dropdown-menu">
+                  <li *ngFor="let room of listOfRooms" (click)="selectRoom(room);selectRoomHidden=true"><a> {{room.name}}</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">
+          <div class="edit-save">
+            <div class="btn-edit-save"  [hidden]="btnSaveHidden" (click)="clickSaveBtn()">
+              <button class="btn" type="button" name="button">Save</button>
+            </div>
+            <div class="btn-edit">
+              <button class="btn" type="button" name="button" (click)="editHidden=false;btnSaveHidden=false">Edit <i class="fa fa-pencil-square" aria-hidden="true"></i></button>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- scene -->

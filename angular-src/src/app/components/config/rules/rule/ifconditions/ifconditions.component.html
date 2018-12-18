@@ -1,0 +1,25 @@
+<div class="if-condition">
+  <h3>IF CONDITIONS</h3>
+</div>
+<div  class="operation" [ngSwitch]="_type">
+  <app-logical-operation *ngSwitchCase="'LogicalOperation'"
+                          [ruleId]="ruleId"
+                          [operation]="operation"
+                          [editHidden]="editHidden"
+                          [listOfDevicesInHouse]="listOfDevicesInHouse"
+                          [listOfUsers]="listOfUsers"
+                          (deleteOperationEvent)="delLogiOperation($event)"
+                          (addOperationEvent)="addLogiOperation($event)"
+                          (updateOperationEvent)="updateOperation($event)">
+</app-logical-operation>
+<app-relational-operation *ngSwitchCase="'RelationalOperation'"
+                            [ruleId]="ruleId"
+                            [operation]="operation"
+                            [listOfDevicesInHouse]="listOfDevicesInHouse"
+                            [listOfUsers]="listOfUsers"
+                            [editHidden]="editHidden"
+                            (deleteOperationEvent)="delRelaOperation($event)"
+                            (addOperationEvent)="addRelaOperation($event)"
+                            (updateOperationEvent)="updateOperation($event)">
+  </app-relational-operation>
+</div>

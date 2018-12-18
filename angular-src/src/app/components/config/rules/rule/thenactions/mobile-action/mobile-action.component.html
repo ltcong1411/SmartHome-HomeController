@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-3 command">
+    <p [hidden]="!editHidden">{{command}}</p>
+    <div class="dropdown"  [hidden]="editHidden">
+      <button class="btn btn-command dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        {{command}}
+      </button>
+      <ul class="dropdown-menu scrollable-menu" role="menu" aria-labelledby="dropdownMenu1">
+        <li (click)="pickAction('CALL')"><a> CALL</a></li>
+        <li (click)="pickAction('SEND SMS')"><a>SEND SMS</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-8 phoneNumber">
+    <p *ngIf="command=='CALL'" [hidden]="!editHidden">{{phoneNumber}}</p>
+    <p *ngIf="command=='SEND SMS'" [hidden]="!editHidden">Phone number: {{phoneNumber}}</p>
+    <p *ngIf="command=='SEND SMS'" [hidden]="!editHidden">message: {{message}}</p>
+    <div class="phoneNumber" [hidden]="editHidden">
+      <input style="margin-bottom:5px" type="text" placeholder="Phone number" (blur)="editValuePhoneNumber($event)" name="name" value="{{phoneNumber}}">
+      <input *ngIf="command=='SEND SMS'" type="text" placeholder="message" (blur)="editValueMessage($event)" name="name" value="{{message}}">
+    </div>
+  </div>
+  <div class="col-md-2 menu" style="padding-left: 5px;position: absolute;right: 0px; cursor: pointer" [hidden]="editHidden">
+    <div class="dropdown">
+      <button class="btn btn-menu dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <i class="fa fa-bars menu" aria-hidden="true"></i>
+      </button>
+      <ul class="dropdown-menu scrollable-menu-2" role="menu" aria-labelledby="dropdownMenu1">
+        <li (click)="deleteAction()"><a> Delete action</a></li>
+        <li (click)="addAction()"><a>Add action</a></li>
+        <li (click)="addMobileAction()"><a>Add mobile action</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<hr/>

@@ -1,0 +1,27 @@
+<div class="col-md-8">
+    <!-- user -->
+    <div class="user" *ngFor="let user of listOfUsers">
+      <app-user-accctrl [user]="user"
+                        (deleteUserEvent)="getListOfUsers()"></app-user-accctrl>
+    </div>
+    <!-- user -->
+
+    <!-- adduser -->
+    <div class="adduser">
+      <button type="button" class="fa fa-plus-circle fa-2x adduserIcon" (click)="checkClick=!checkClick"></button>
+      <div class="input" [hidden]="checkClick" >
+        <form (submit)="adduserSubmit(newUserName)">
+          <div class="form-group">
+            <input type="text"
+            class="form-control"
+            [(ngModel)]="newUserName" name="newUserName"
+            placeholder="user name"
+            required>
+          </div>
+          <input type="submit" class="btn btn-add-user" value="Add">
+        </form>
+      </div>
+    </div>
+    <!-- adduser -->
+
+</div>

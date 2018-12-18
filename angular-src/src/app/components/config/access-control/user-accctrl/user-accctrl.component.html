@@ -1,0 +1,181 @@
+<div bsModal #smModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Are you sure you want to delete user <b>{{user.name}}</b> ?</h4>
+      </div>
+      <div class="modal-body">
+        <button type="button" class="btn btn-modal" (click)="smModal.hide()">No</button>
+        <button type="button" class="btn btn-modal" (click)="smModal.hide();deleteUser()">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div bsModal #smModal1="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm img-picker-dialog">
+    <div class="modal-content img-picker-content">
+      <div class="modal-header img-picker-header">
+        <h3>Please pick your avatar</h3>
+      </div>
+      <div class="modal-body img-picker-body">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="./assets/images/avatars/avatar10.png"
+                 class="img-circle roomImg"
+                 alt="Responsive image"
+                  (click)="smModal1.hide();addImgSubmit('./assets/images/avatars/avatar10.png')">
+          </div>
+          <div class="col-md-4">
+            <img src="./assets/images/avatars/avatar1.png"
+                 class="img-circle roomImg"
+                 alt="Responsive image"
+                  (click)="smModal1.hide();addImgSubmit('./assets/images/avatars/avatar1.png')">
+          </div>
+          <div class="col-md-4">
+            <img src="./assets/images/avatars/avatar2.png"
+                 class="img-circle roomImg"
+                 alt="Responsive image"
+                  (click)="smModal1.hide();addImgSubmit('./assets/images/avatars/avatar2.png')">
+          </div>
+          <div class="col-md-4">
+            <img src="./assets/images/avatars/avatar3.png"
+                 class="img-circle roomImg"
+                 alt="Responsive image"
+                  (click)="smModal1.hide();addImgSubmit('./assets/images/avatars/avatar3.png')">
+          </div>
+          <div class="col-md-4">
+            <img src="./assets/images/avatars/avatar4.png"
+                 class="img-circle roomImg"
+                 alt="Responsive image"
+                  (click)="smModal1.hide();addImgSubmit('./assets/images/avatars/avatar4.png')">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <img src="./assets/images/avatars/avatar5.png"
+                 class="img-circle roomImg"
+                 alt="Responsive image"
+                  (click)="smModal1.hide();addImgSubmit('./assets/images/avatars/avatar5.png')">
+          </div>
+          <div class="col-md-4">
+            <img src="./assets/images/avatars/avatar6.png"
+                 class="img-circle roomImg"
+                 alt="Responsive image"
+                  (click)="smModal1.hide();addImgSubmit('./assets/images/avatars/avatar6.png')">
+          </div>
+          <div class="col-md-4">
+            <img src="./assets/images/avatars/avatar7.png"
+                 class="img-circle roomImg"
+                 alt="Responsive image"
+                  (click)="smModal1.hide();addImgSubmit('./assets/images/avatars/avatar7.png')">
+          </div>
+          <div class="col-md-4">
+            <img src="./assets/images/avatars/avatar8.png"
+                 class="img-circle roomImg"
+                 alt="Responsive image"
+                  (click)="smModal1.hide();addImgSubmit('./assets/images/avatars/avatar8.png')">
+          </div>
+          <div class="col-md-4">
+            <img src="./assets/images/avatars/avatar9.png"
+                 class="img-circle roomImg"
+                 alt="Responsive image"
+                  (click)="smModal1.hide();addImgSubmit('./assets/images/avatars/avatar9.png')">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- user -->
+<div class="user">
+  <div class="panel panel-primary panel-pricing">
+    <div class="panel-heading">
+      <i class="fa fa-user-circle" aria-hidden="true"></i>
+      <!-- <h3 class="userName">#1</h3> -->
+      <div class="x-icon" >
+        <i class="fa fa-times" aria-hidden="true" (click)="smModal.show()"></i>
+      </div>
+    </div>
+    <div class="row scirpt-body">
+      <div class="col-md-4">
+        <div class="picture">
+          <div class="imgNotAvailable" [hidden] = "checkImgClick">
+            <img src="{{user.imgPath}}"
+                 class="img-circle user-picture"
+                 alt="Responsive image"
+                  (click)="smModal1.show()">
+          </div>
+        </div>
+        <div class="user-name">
+          <h3><b>{{user.name}}</b></h3>
+        </div>
+      </div>
+      <div class="col-md-8 device-picker"  [hidden]="main_row_hidden">
+        <div class="row qrcode-fingerprint">
+          <div class="col-md-5">
+            <div class="picture qrcode">
+              <img src="./assets/images/access-control/qrcode.png"
+                   class="img qrcode-picture"
+                   alt="Responsive image"
+                   (click)="show_qrcode_row()"
+                  [ngStyle]="isQRAvailable ? '' : grayFilter">
+                  <h4 [ngStyle]="isQRvailable ? '' : grayFilter">
+                    QRcode <i class="fa fa-check" aria-hidden="true" [hidden]="!isQRAvailable"></i>
+                  </h4>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="picture fingerprint">
+              <img src="./assets/images/access-control/fingerprint3.png"
+                   class="img-circle fingerprint-picture"
+                   alt="Responsive image"
+                    (click)="show_fingerprint_row()"
+                    [ngStyle]="isFingerprintAvailable ? '' : grayFilter">
+              <h4 [ngStyle]="isFingerprintAvailable ? '' : grayFilter">
+                Fingerprint <i class="fa fa-check" aria-hidden="true" [hidden]="!isFingerprintAvailable"></i>
+              </h4>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <!-- (click)="show_face_row()" nang cap thi de y cai nay de sua vao -->
+            <div class="picture fingerprint">
+              <img src="./assets/images/access-control/face-recognition.png"
+                   class="img-circle fingerprint-picture"
+                   alt="Responsive image"
+                    
+                    [ngStyle]="grayFilter">
+              <h4 [ngStyle]="grayFilter">
+                Face <i class="fa fa-check" aria-hidden="true" [hidden]="!isFingerprintAvailable"></i>
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8 device-picker"  [hidden]="qr_hidden">
+        <app-qrcode-access
+            [user]="user"
+            (backEvent)="show_main_row()"
+            (isQRAvailable)="isQRAvailable=$event;">
+        </app-qrcode-access>
+      </div>
+      <div class="col-md-8 device-picker"  [hidden]="fingerprint_hidden">
+        <app-fingerprint
+            [user]="user"
+            (backEvent)="show_main_row()"
+            (isFingerprintAvailable)="isFingerprintAvailable=$event;">
+        </app-fingerprint>
+      </div>
+      <div class="col-md-8 device-picker"  [hidden]="face_hidden">
+        <app-face-recognition
+            [user]="user"
+            (backEvent)="show_main_row()"
+            (isFingerprintAvailable)="isFingerprintAvailable=$event;">
+        </app-face-recognition>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- user -->

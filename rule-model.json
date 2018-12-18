@@ -1,0 +1,33 @@
+{
+  "name": "Security",
+  "date": null,
+  "time": {
+    "from": "10:00 PM",
+    "to": "5:00 AM"
+  },
+  "ifConditions": [
+    {
+      "logicalOperator": null,
+      "conditions": [
+        {
+          "_id": "2v76b123g513kdhsaf23jh44234",
+          "operator": "equal",
+          "value": 69
+        }
+      ]
+    },
+    {
+      "logicalOperator": "AND",
+      "conditions": [
+        {
+          "logicalOperator": "OR",
+          "condition": {
+            "_id": "2j39cz09q328y9scyzv9823",
+            "operator": "less",
+            "value": 50
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+<div class="dimmable"  *ngIf="light.dimmable==true">
+  <div class="light-name">
+    <i class="fa fa-minus-square"
+    aria-hidden="true"
+    (click)="removeLight()"
+    [hidden]="editHidden"></i>
+  <a class="list-group-item"> {{light.name}}</a>
+  </div>
+  <md-slider [thumb-label]="true" [(ngModel)]="lightValue" (input)="getValue($event.value)"></md-slider>
+  <div [ngClass]="light.dimmable==true?'hidden-xs':''" >
+    <ui-switch [(ngModel)]="switchValue" size="medium-v2" (click)="getSwitchValue(switchValue)"></ui-switch>
+  </div>
+</div>
+<div class="not-dimmable" *ngIf="light.dimmable==false" >
+  <div class="light-name">
+    <i class="fa fa-minus-square"
+    aria-hidden="true"
+    (click)="removeLight()"
+    [hidden]="editHidden"></i>
+  <a class="list-group-item"> {{light.name}}</a>
+  </div>
+  <input [(colorPicker)]="color" (colorPickerChange)="getColor($event)" [style.background]="color" *ngIf="light.typeOfLight=='RGB'">
+  <ui-switch [(ngModel)]="lightValue" size="medium-v2" (click)="getValue(lightValue)"></ui-switch>
+</div>

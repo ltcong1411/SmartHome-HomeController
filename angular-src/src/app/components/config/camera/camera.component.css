@@ -1,0 +1,145 @@
+.col-md-8{
+  padding: 26px 0px 10px 42px;
+}
+
+
+.fa {
+  cursor: pointer;
+  color: auto;
+  background-color: inherit;
+  border: 0px;
+}
+
+
+.user{
+  margin-top: 50px;
+}
+
+.form-group {
+    float: left;
+    margin-right: 20px;
+}
+
+.fa {
+  cursor: pointer;
+  color: auto;
+  background-color: inherit;
+  border: 0px;
+}
+
+
+.fa-plus-circle {
+  color: #93c54b;
+}
+
+.checkbox-input {
+  height: 30px;
+  margin-right: 10px;
+}
+/*add user*/
+
+/*user*/
+
+.user{
+  margin-top: 50px;
+}
+
+.userName{
+  margin-top: 10px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+
+
+.panel {
+  margin-bottom: 40px;
+  min-width: 600px;
+  border: 0px;
+  border-radius: 0;
+}
+
+.panel-pricing {
+  -moz-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  -webkit-transition: all .3s ease;
+}
+.panel-pricing:hover {
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+}
+.panel-pricing .panel-heading {
+  height: 60px;
+  border: 0;
+  border-radius: 0;
+}
+.panel-pricing .panel-heading .fa {
+  margin-top: 10px;
+  font-size: 28px;
+  float:left;
+}
+
+.userName {
+  float:left;
+}
+
+.panel-pricing .list-group-item {
+  color: #777777;
+  border-bottom: 1px solid rgba(250, 250, 250, 0.5);
+  background-color: inherit;
+}
+.panel-pricing .list-group-item:last-child {
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.panel-pricing .list-group-item:first-child {
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+}
+.panel-pricing .panel-body {
+  background-color: inherit;
+  font-size: 20px;
+  color: #777777;
+  padding: 2px;
+  margin: 0px;
+  text-align: left;
+}
+
+.x-icon{
+  float: right;
+}
+
+.panel-body-content {
+  margin-left: 15px;
+}
+
+.panel-body-btn{
+  float: left;
+}
+
+.panel-body-icon{
+  float: left;
+  margin-top: 7px;
+}
+
+
+
+.user{
+  margin: 25px 15px 0px 25px;
+}
+
+
+.footer{
+  width: 100%;
+  height: 70px;
+}
+
+.body{
+  margin: 0px;
+  background-color: #272c2f;
+}
+
+.camera-stream{
+  display: block;
+  margin: auto;
+  width: 82%;
+}

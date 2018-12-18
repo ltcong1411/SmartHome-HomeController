@@ -1,0 +1,97 @@
+<div bsModal #smModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header" style="padding: 40px 0px">
+        <div class="users">
+          <a class="room-floor">
+            <span><i class="fa fa-user" aria-hidden="true"></i> Users</span>
+          </a>
+          <div class="list-of-users" *ngFor="let user of listOfUsers">
+            <a class="device" (click)="selectUser(user);smModal.hide()">{{user.name}}</a>
+          </div>
+        </div>
+        <div class="list-of-room" *ngFor="let room of listOfDevicesInHouse">
+          <a class="room-floor">
+            <span><i aria-hidden="true" class="fa fa-home"></i> {{room.floorName}} </span>
+            <span><i aria-hidden="true" class="fa fa-caret-right"></i> {{room.roomName}} </span>
+          </a>
+          <div class="list-of-sensors" *ngFor="let sensor of room.sensors">
+            <a class="device" (click)="selectSensor(sensor);smModal.hide()">{{sensor.name}} sensor</a>
+            <!-- <a class="device-type">sensor</a> -->
+          </div>
+          <div class="list-of-lights" *ngFor="let light of room.lights">
+            <a class="device" (click)="selectLight(light);smModal.hide()">{{light.name}}</a>
+            <!-- <a class="device-type">light</a> -->
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <button type="button" class="btn btn-success btn-modal" (click)="smModal.hide()">OK</button>
+        <button type="button" class="btn btn-danger btn-modal" (click)="smModal.hide()">CANCEL</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-3 device-name">
+    <p [hidden]="!editHidden">{{_name}}</p>
+    <div class="device-name" [hidden]="editHidden">
+      <button class="btn btn-_name" type="button"  (click)="smModal.show()" aria-haspopup="true" aria-expanded="true">
+        {{_name}}
+      </button>
+    </div>
+  </div>
+  <div class="col-md-5 operator" [hidden]="isUserPicked">
+    <p [hidden]="!editHidden">{{operator}}</p>
+    <div class="dropdown" [hidden]="editHidden">
+      <button class="btn btn-operator dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        {{operator }}
+      </button>
+      <ul class="dropdown-menu scrollable-menu-1" role="menu" aria-labelledby="dropdownMenu1" [hidden]="editHidden">
+        <li *ngFor="let operator of operatorArr; let i=index">
+          <a (click)="selectOperator(operatorSymbolArr[i])"><span class="operator-symbol">{{operatorSymbolArr[i]}}</span><span class="operator-string">{{operator}}</span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-5 operator" [hidden]="!isUserPicked">
+    <p [hidden]="!editHidden">come back home</p>
+    <div class="dropdown" [hidden]="editHidden">
+      <button class="btn btn-operator dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        come back home
+      </button>
+    </div>
+  </div>
+  <div class="col-md-2 value" (click)="sliderHidden=!sliderHidden" [hidden]="isUserPicked">
+    <p [hidden]="!editHidden">{{value}}</p>
+    <div class="value" [hidden]="editHidden" (click)="clickValueBtn()">
+      <button class="btn btn-value" type="button">{{value}}</button>
+    </div>
+  </div>
+  <div class="col-md-2 menu" style="padding-left: 5px;position: absolute;right: 0px;" [hidden]="editHidden">
+    <div class="dropdown">
+      <button class="btn btn-menu dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <i class="fa fa-bars menu" aria-hidden="true"></i>
+      </button>
+      <ul class="dropdown-menu scrollable-menu-2" role="menu" aria-labelledby="dropdownMenu1" [hidden]="editHidden">
+        <li (click)="deleteOperation()"><a> Delete operation</a></li>
+        <li (click)="addOperation()" [hidden]="addOperationHidden"><a>Add operation</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div *ngIf="dimmable==true && typeOfLight!=='Air'" class="row" [hidden]="editHidden||sliderHidden||!dimmable">
+  <md-slider min="{{sliderMinValue}}"
+            max="{{sliderMaxValue}}" [thumb-label]="true"
+            [(ngModel)]="value"
+            (input)="getValue($event.value)">
+  </md-slider>
+</div>
+<div *ngIf="dimmable==true && typeOfLight=='Air'" class="row" [hidden]="editHidden||sliderHidden||!dimmable">
+  <md-slider min="18" max="30" step="1" [thumb-label]="true"
+            [(ngModel)]="value"
+            (input)="getValue($event.value)">
+  </md-slider>
+</div>

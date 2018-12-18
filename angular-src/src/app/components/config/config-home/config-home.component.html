@@ -1,0 +1,21 @@
+<div class="col-sm-8 rooms-config">
+  <flash-messages></flash-messages>
+  <div class="listOfRooms" *ngFor = "let room of rooms">
+    <app-room [room]="room" [floorId]="floorId" (roomChange)="getRooms(floorId)"></app-room>
+  </div>
+  <div class="addRoom" [hidden]="!floorId">
+    <button type="button" class="fa fa-plus-circle fa-2x" (click)="checkClick=!checkClick"></button>
+    <div class="input" [hidden]="checkClick" >
+      <form (submit)="addRoomSubmit()">
+      <div class="form-group">
+            <input type="text"
+                    class="form-control"
+                    [(ngModel)]="roomAddedName" name="roomAddedName"
+                    placeholder="Room name"
+                    required>
+        </div>
+        <input type="submit" class="btn btn-success btn-add-room" value="Add">
+      </form>
+    </div>
+  </div>
+</div>

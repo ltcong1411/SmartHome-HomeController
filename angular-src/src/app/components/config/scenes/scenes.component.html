@@ -1,0 +1,26 @@
+<div class="col-md-8">
+    <!-- scene -->
+    <div class="scene" *ngFor="let scene of scenes">
+      <app-scene [scene]="scene" (removeScene)="getListOfScenes()"></app-scene>
+    </div>
+    <!-- scene -->
+
+    <!-- addscene -->
+    <div class="addscene">
+      <button type="button" class="fa fa-plus-circle fa-2x addSceneIcon" (click)="checkClick=!checkClick"></button>
+      <div class="input" [hidden]="checkClick" >
+        <form (submit)="addsceneSubmit()">
+          <div class="form-group">
+            <input type="text"
+            class="form-control"
+            [(ngModel)]="newSceneName" name="newSceneName"
+            placeholder="scene name"
+            required>
+          </div>
+          <input type="submit" class="btn btn-success btn-add-scene" value="Add">
+        </form>
+      </div>
+    </div>
+    <!-- addscene -->
+
+</div>

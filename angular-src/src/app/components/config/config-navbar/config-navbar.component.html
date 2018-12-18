@@ -1,0 +1,69 @@
+<div bsModal #smModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Are you sure you want to delete <b>{{floorDeletedName}}</b> ?</h4>
+      </div>
+      <div class="modal-body">
+        <button type="button" class="btn btn-success btn-modal" (click)="smModal.hide()" (click)="deleteFloor()">Yes</button>
+        <button type="button" class="btn btn-danger btn-modal" (click)="smModal.hide()">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="hidden-xs col-sm-2">
+  <div class="sidebar">
+    <div class="panel panel-success home">
+      <!-- <div class="panel-heading" (click)="height = height ? 0 : el.scrollHeight"> -->
+      <div class="panel-heading" (click)="selectConfig('home')" [routerLinkActive]="['active']" [routerLink] = "['home/' + floorSelectedId]">
+        <h3 class="panel-title" >Home</h3>
+      </div>
+      <div
+        class="card card-block card-header block" [style.height]="height + 'px'" #el [hidden]="listOfFloorHidden">
+        <div class="panel-body">
+          <div class="row floor">
+              <div class="list-group">
+                <div class="list-floor" *ngFor="let floor of floors | reverse">
+                <a class="list-group-item"
+                    (click)="getFloor(floor.name, floor._id)"
+                    [routerLink] = "['home/' + floor._id]"
+                    [routerLinkActive]="['floor-active']">
+                  <button type="button" class="fa fa-minus-circle" (click)="smModal.show()"></button> {{floor.name}}</a>
+                </div>
+                <div class="list-floor addFloor">
+                  <button type="button" class="fa fa-plus-circle fa-1x" (click)="addFloorFlag=!addFloorFlag"></button>
+                  <div class="form-group" [hidden]="addFloorFlag">
+                    <input  type="text"
+                            placeholder="Floor Name"
+                            [(ngModel)]="floorname" name="floorname"
+                            class="form-control"
+                            (keyup.enter)="addFloor(floorname)">
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-heading" (click)="selectConfig('devices')" [routerLinkActive]="['active']" [routerLink] = "['/config/devices']">
+        <h3 class="panel-title">Device</h3>
+      </div>
+      <div class="panel-heading" (click)="selectConfig('scenes')" [routerLinkActive]="['active']" [routerLink] = "['/config/scenes']">
+        <h3 class="panel-title">Scene</h3>
+      </div>
+      <div class="panel-heading" (click)="selectConfig('rules')" [routerLinkActive]="['active']" [routerLink] = "['/config/rules']">
+        <h3 class="panel-title">Rule</h3>
+      </div>
+      <div class="panel-heading" (click)="selectConfig('access-control')" [routerLinkActive]="['active']" [routerLink] = "['/config/access-control']">
+        <h3 class="panel-title access-control">Access control</h3>
+      </div>
+      <div class="panel-heading" (click)="selectConfig('camera')" [routerLinkActive]="['active']" [routerLink] = "['/config/camera']">
+        <h3 class="panel-title access-control">Camera</h3>
+      </div>
+    </div>
+
+
+  </div>
+</div>

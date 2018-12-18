@@ -1,0 +1,45 @@
+<div class="sensor" [ngSwitch]="sensor._type">
+  <div class="doors" *ngSwitchCase="'Door'">
+    <img *ngIf="value==1" src="./assets/images/doors/open-door.png"
+         class="img-responsive door"
+         alt="Responsive image">
+    <img *ngIf="value==0" src="./assets/images/doors/closed-door.png"
+        class="img-responsive door"
+    alt="Responsive image">
+  </div>
+  <div class="doors" *ngSwitchCase="'Window'">
+    <img *ngIf="value==1" src="./assets/images/doors/open-window.png"
+        class="img-responsive door"
+        alt="Responsive image">
+    <img *ngIf="value==0" src="./assets/images/doors/closed-window.png"
+       class="img-responsive door"
+       alt="Responsive image">
+  </div>
+  <div class="ss" *ngSwitchCase="'Temperature'">
+    <i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i>
+    <!-- <span> {{sensor._type}}: </span> -->
+    <!-- <input type="text" [(ngModel)]="value" disabled> -->
+    <span>{{value}}</span>
+    <span>oC</span>
+  </div>
+  <div class="ss" *ngSwitchCase="'Humidity'">
+    <i class="fa fa-tint" aria-hidden="true"></i>
+    <!-- <span> {{sensor._type}}: </span> -->
+    <span>{{value}}</span>
+    <span>%</span>
+  </div>
+  <div class="ss" *ngSwitchCase="'Light'">
+    <i class="fa fa-sun-o" aria-hidden="true"></i>
+    <!-- <span> {{sensor._type}}: </span> -->
+    <span>{{value}}</span>
+    <span> lux</span>
+  </div>
+  <div class="ss" *ngSwitchCase="'Gas'">
+    <img src="./assets/images/sensor-icons/gas.png"
+       class="img-responsive gas"
+       alt="Responsive image">
+    <!-- <span> {{sensor._type}}: </span> -->
+    <span>{{value}}</span>
+    <span> ppm</span>
+  </div>
+</div>

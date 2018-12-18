@@ -1,0 +1,192 @@
+.panel {
+  height: auto;
+  border: 0px;
+  border-radius: 0;
+  margin-bottom: 50px;
+}
+
+.panel-heading {
+  height: 60px;
+  vertical-align: middle;
+  padding: 0 0;
+  border: 0px;
+}
+
+.title{
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  background-color: #4caf50;
+}
+
+.panel-title {
+  position: absolute;
+  font-size: 20px;
+  color: #ffffff;
+  margin: 2% 0 2% 2%;
+}
+
+.panel-title:hover {
+  text-decoration: none;
+}
+
+.card{
+  background-color: #f8f5f0;
+}
+
+.panel-body{
+  padding: 0px;
+}
+
+.row{
+  display: flex;
+  margin: 0px;
+}
+
+.panel-left{
+  padding: 40px 35px 35px 35px;
+  background-color: #272c2f;
+  color: #f8f5f0;
+  align-items: stretch;
+}
+
+.imgAvailable, .imgNotAvailable{
+  border: 3px solid;
+}
+
+
+
+.sensors {
+  margin-top: 33px;
+}
+
+.sensors>p {
+  margin: 25px 0 10px;
+}
+
+.devices {
+  margin-top: 30px;
+  padding-left: 18px;
+}
+
+.devices>h2 {
+  margin-top: -4px;
+  margin-bottom: 0;
+}
+
+.list-group-item{
+  background-color: inherit;
+}
+
+
+.block {
+     overflow: hidden;
+     -webkit-transition: height .5s;
+     transition: height .5s;
+}
+
+.fa {
+  cursor: pointer;
+  color: auto;
+  background-color: inherit;
+  border: 0px;
+}
+
+.fa-times {
+  color: auto;
+  float: right;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.fa-plus-circle {
+  color: #65995e;
+  float: left;
+  margin-right: 10px;
+}
+
+input {
+  background-color: inherit;
+  border: 0px;
+  margin-top: 5px;
+  border-bottom: 1px solid white;
+  border-radius: 0;
+  padding: 0;
+}
+
+/*modal*/
+.modal-title {
+  text-align: center;
+}
+
+.modal-body{
+  margin: 0 auto;
+  text-align: center;
+}
+
+.btn-modal {
+  min-width: 80px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+/*modal*/
+
+/*model2*/
+
+.img-picker-dialog{
+  width: 80%;
+  margin-top: 6%;
+}
+
+.modal-header{
+  text-align: center;
+}
+
+.img-picker-body{
+  display: inline-block;
+}
+
+.img-picker-body>.row>.col-md-4>img{
+  margin: 10px 5px;
+  height: 87%;
+  width: 100%;
+  cursor: pointer;
+}
+/*modal2*/
+
+.imgNotAvailable>img{
+  cursor: pointer;
+}
+
+.form-group {
+    float: left;
+    margin-right: 20px;
+}
+
+.addRoom {
+  margin-top: 8px;
+}
+
+.btn-add-room {
+    line-height: 0;
+}
+
+.sensors {
+  margin-top: 20px;
+}
+
+.form-addImageUrl {
+  width: 100%;
+}
+
+.light{
+  width: 100%;
+  height: 50px;
+  padding: 12px 0 12px 20px;
+  border-bottom: 1px solid #dfd7ca;
+  cursor: pointer;
+}
+
+app-light{
+  line-height: 0px;
+}

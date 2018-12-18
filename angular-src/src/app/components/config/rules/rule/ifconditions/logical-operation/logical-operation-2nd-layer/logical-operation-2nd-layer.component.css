@@ -1,0 +1,39 @@
+._1st-operand, ._2nd-operand{
+  margin: 6px 0px;
+}
+
+hr {
+  height: 1px;
+  background: #dfd7ca;
+  margin: 16px 0px;
+}
+
+.operator{
+  margin: 0px 17px 0px 29px;
+  font-size: 17px;
+  font-weight: bold;
+  color: #626262;
+  float: left;
+}
+
+.operator>p{
+  margin: 0px;
+}
+
+.dropdown-toggle{
+  background-color: inherit;
+  color: #626262;
+  font-size: 17px;
+  font-weight: 800;
+  padding: 0px;
+}
+
+.dropdown-menu{
+  cursor: pointer;
+}
+
+.dropdown-menu>li>a{
+  font-size: 15px;
+  line-height: 27px;
+  font-weight: 800;
+}

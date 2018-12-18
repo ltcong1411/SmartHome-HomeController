@@ -1,0 +1,103 @@
+.row{
+  text-align: left;
+  margin-left: 45px;
+  font-size: 17px;
+  color: #626262;
+}
+
+.command>p{
+  text-align: left;
+}
+
+.device-name{
+  margin-left: 15px;
+}
+
+.btn:focus, .btn:hover{
+  color: black;
+  border: 0px;
+  outline: inherit;
+}
+
+.btn-deviceName, .btn-command{
+  font-size: 16px;
+  text-transform: none;
+  font-weight: 400;
+  margin-bottom: 11px;
+}
+
+.switch, .rgb, .slider, .menu {
+  text-align: center;
+}
+
+hr {
+  height: 1px;
+  background: #dfd7ca;
+  margin: 2px 0px;
+  margin-left: 36px;
+  margin-bottom: 13px;
+}
+
+/*modal*/
+.modal-title {
+  text-align: center;
+}
+
+.modal-body{
+  margin: 0 auto;
+  text-align: center;
+}
+
+.btn-modal {
+  min-width: 80px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.form-group {
+    float: left;
+    margin-right: 20px;
+}
+
+.room-floor{
+    font-size: 19px;
+    font-weight: 700;
+    color: #6d6d6d;
+    text-decoration: none;
+    padding-left: 40px;
+}
+
+.list-of-sensors, .list-of-lights{
+  padding: 4px 0px;
+  margin: 4px 0px;
+}
+
+.list-of-sensors:hover, .list-of-lights:hover{
+  background-color: whitesmoke;
+}
+
+
+.device{
+  padding-left: 62px;
+  text-transform: none;
+  cursor: pointer;
+  color: #868686;
+  text-decoration: none;
+  width: auto;
+  display: block;
+  font-size: 16px;
+}
+
+
+.device:hover{
+  color: #404040;
+  font-weight: bold;
+}
+/*modal*/
+
+.rgb>input{
+  width: 8vw;
+  border-color: rgb(57, 58, 53);
+  border-radius: 17px;
+  margin-top: -5px;
+}

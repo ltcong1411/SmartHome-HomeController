@@ -1,0 +1,71 @@
+<div bsModal #smModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header" style="padding: 40px 0px">
+        <div class="list-of-room" *ngFor="let room of listOfDevicesInHouse">
+          <a class="room-floor">
+            <span><i aria-hidden="true" class="fa fa-home"></i> {{room.floorName}} </span>
+            <span><i aria-hidden="true" class="fa fa-caret-right"></i> {{room.roomName}} </span>
+          </a>
+          <div class="list-of-lights" *ngFor="let device of room.lights">
+            <a class="device" (click)="selectDevice(device);smModal.hide()">{{device.name}}</a>
+            <!-- <a class="device-type">light</a> -->
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <button type="button" class="btn btn-success btn-modal" (click)="smModal.hide()">OK</button>
+        <button type="button" class="btn btn-danger btn-modal" (click)="smModal.hide()">CANCEL</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-3 command">
+    <p [hidden]="!editHidden">{{command}}</p>
+    <div class="command" [hidden]="editHidden">
+      <button class="btn btn-command" type="button" aria-haspopup="true" aria-expanded="true" (click)="clickCommand(!value)">
+        {{command}}
+        <!-- <span class="caret" ></span> -->
+      </button>
+    </div>
+  </div>
+  <div class="col-md-3 device-name">
+    <p [hidden]="!editHidden">{{deviceName}}</p>
+    <div class="device-name" [hidden]="editHidden">
+      <button class="btn btn-deviceName" type="button"  (click)="smModal.show()" aria-haspopup="true" aria-expanded="true">
+        {{deviceName}}
+      </button>
+    </div>
+  </div>
+  <div class="col-md-2 switch"  *ngIf="typeOfLight!=='RGB'" [hidden]="dimmable" [ngStyle]="editHidden ? {'margin': '0px 7%'} : {'margin': '0 6%', 'padding': '12px 4px 5px 4px', 'background-color': 'rgb(221, 221, 221)',  'border-radius': '4px'}">
+    <ui-switch [(ngModel)]="value" size="medium-v2" (click)="clickCommand(value)"></ui-switch>
+  </div>
+  <div class="col-md-4 rgb"   *ngIf="typeOfLight=='RGB'" [hidden]="dimmable" [ngStyle]="editHidden ? {'margin': '0px -1vw'} : {'padding': '12px 4px 5px 4px'}">
+    <input [(colorPicker)]="color" (colorPickerChange)="getColor($event)" [style.background]="color">
+  </div>
+  <div *ngIf="dimmable==true && typeOfLight!=='Air'" class="col-md-6 slider" [hidden]="!dimmable" [ngStyle]="editHidden ? {'margin-top':'-11px','width': '30%'} : {'background-color': '#dddddd', 'width': '30%', 'border-radius': '4px'}">
+    <md-slider [thumb-label]="true" [(ngModel)]="value"
+              (input)="getValue($event.value)">
+    </md-slider>
+  </div>
+  <div *ngIf="dimmable==true && typeOfLight=='Air'" class="col-md-6 slider" [hidden]="!dimmable" [ngStyle]="editHidden ? {'margin-top':'-11px','width': '30%'} : {'background-color': '#dddddd', 'width': '30%', 'border-radius': '4px'}">
+    <md-slider min="18" max="30" step="1" [thumb-label]="true" [(ngModel)]="value"
+              (input)="getValue($event.value)">
+    </md-slider>
+  </div>
+  <div class="col-md-2 menu" style="padding-left: 5px;position: absolute;right: 0px; cursor: pointer" [hidden]="editHidden">
+    <div class="dropdown">
+      <button class="btn btn-menu dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <i class="fa fa-bars menu" aria-hidden="true"></i>
+      </button>
+      <ul class="dropdown-menu scrollable-menu-2" role="menu" aria-labelledby="dropdownMenu1" [hidden]="editHidden">
+        <li (click)="deleteAction()"><a> Delete action</a></li>
+        <li (click)="addAction()"><a>Add device action</a></li>
+        <li (click)="addMobileAction()"><a>Add mobile action</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<hr/>

@@ -1,0 +1,34 @@
+{
+  "name": "BKhome",
+  "version": "1.0.0",
+  "description": "BKHome",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "dependencies": {
+    "agenda": "^0.9.1",
+    "atob": "^2.0.3",
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "canvas": "^1.6.13",
+    "cors": "*",
+    "cron": "^1.2.1",
+    "express": "*",
+    "jsonwebtoken": "*",
+    "moment": "^2.18.1",
+    "mongodb": "^2.2.25",
+    "mongoose": "*",
+    "mosca": "^2.2.0",
+    "node-qrious": "^4.0.0",
+    "nodemailer": "^4.1.0",
+    "nodemon": "^1.18.9",
+    "passport": "*",
+    "passport-jwt": "*",
+    "socket.io": "^1.7.3",
+    "xoauth2": "^1.2.0"
+  },
+  "author": "",
+  "license": "ISC"
+}

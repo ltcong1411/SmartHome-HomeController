@@ -1,0 +1,45 @@
+.list-group-item{
+  background-color: rgba(0, 0, 0, 0);
+  color: #464646;
+  border: 0px;
+  float: left;
+  padding: 7px 0px 0px 0px;
+  font-size: 17px;
+}
+
+.list-group-item:hover{
+  background-color: rgba(0, 0, 0, 0);
+  border: 0px;
+}
+
+ui-switch{
+  float: right;
+  margin-right: 50px;
+}
+
+md-slider{
+  position: relative;
+  bottom: 8px;
+  left: 10%;
+  width: 40%;
+  float: left;
+}
+
+.list-group-item>i{
+  padding-right: 5px;
+}
+
+.light-name>i{
+  float: left;
+  margin-top: 9px;
+  margin-right: 12px;
+}
+
+input{
+  position: relative;
+  left: 11%;
+  width: 39%;
+  height: 29px;
+  border-color: rgb(57, 58, 53);
+  border-radius: 17px;
+}

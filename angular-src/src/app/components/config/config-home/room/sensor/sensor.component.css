@@ -1,0 +1,37 @@
+.ss{
+  font-size: 20px;
+  float: left;
+  margin: 9px 11%;
+}
+.fa{
+   margin-right: 5px;
+}
+
+.fa-sun-o{
+  margin-left: -5px;
+}
+
+input{
+  background-color: inherit;
+  border: 0px;
+  width: 27px;
+  direction: rtl;
+}
+
+.doors{
+  margin-top: 20px;
+}
+
+.door{
+  max-width: 40%;
+  height: auto;
+  margin: 20px 10px;
+  float: left;
+}
+
+.gas{
+  max-width: 14%;
+  height: auto;
+  margin: 0px 5px 0px -5px;
+  float: left;
+}

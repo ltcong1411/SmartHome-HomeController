@@ -1,0 +1,43 @@
+.home-config{
+  background-color: #3e3f3a;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.rooms-config {
+  margin: 52px 10px 0px 53px;
+  padding-bottom: 35px;
+}
+
+.listOfRooms{
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+}
+
+.fa {
+  cursor: pointer;
+  color: auto;
+  background-color: inherit;
+  border: 0px;
+}
+
+
+.fa-plus-circle {
+  color: #8BC34A;
+  float: left;
+  margin-right: 10px;
+  margin-left: -6px;
+}
+
+input {
+  height: 30px;
+  margin-right: 10px;
+}
+
+.form-group {
+    float: left;
+    margin-right: 20px;
+}
+
+.btn-add-room {
+    line-height: 0;
+  }

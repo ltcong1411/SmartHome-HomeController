@@ -1,0 +1,24 @@
+<div class="then-actions">
+  <h3>THEN ACTIONS</h3>
+</div>
+<div class="actions" *ngFor="let action of thenActions; let i=index">
+  <app-action *ngIf="action.typeOfAction=='deviceAction'"
+              [action]="action"
+              [order]="i"
+              [editHidden]="editHidden"
+              [listOfDevicesInHouse]="listOfDevicesInHouse"
+              (deleteActionEvent)="deleteAction($event)"
+              (addActionEvent)="addDeviceAction()"
+              (addMobileActionEvent)="addMobileAction()"
+              (updateActionEvent)="updateAction()">
+  </app-action>
+  <app-mobile-action *ngIf="action.typeOfAction=='mobileAction'"
+              [action]="action"
+              [order]="i"
+              [editHidden]="editHidden"
+              (deleteActionEvent)="deleteAction($event)"
+              (addActionEvent)="addDeviceAction()"
+              (addMobileActionEvent)="addMobileAction()"
+              (updateActionEvent)="updateAction()">
+  </app-mobile-action>
+</div>

@@ -1,0 +1,16 @@
+.if-condition{
+  padding-left: 20px;
+  margin-bottom: 17px;
+  border-bottom: 1px solid #dfd7ca;
+  color: #545454;
+}
+
+.if-condition>h3{
+  font-size: 22px;
+}
+
+
+.operation{
+  border-bottom: 1px solid #dfd7ca;
+  padding-bottom: 5px;
+}

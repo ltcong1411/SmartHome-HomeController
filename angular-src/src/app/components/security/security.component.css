@@ -1,0 +1,44 @@
+.alarm-bell{
+  text-align: center;
+  margin: 39px auto;
+  display: block;
+}
+/*modal*/
+.modal-dialog{
+  margin: 10px 20vw;
+}
+.modal-sm{
+  margin-top: 105px;
+}
+
+.modal-content{
+  background-color: #F44336;
+  height: 522px;
+  width: 800px;
+}
+
+.modal-header{
+  padding: 29px 15px 0px 15px;
+  border: none;
+}
+.modal-title {
+  text-align: center;
+  font-size: 44px;
+  line-height: 79px;
+  color: white;
+}
+
+.modal-body{
+  margin: 0 auto;
+  text-align: right;
+  padding: 0px 15px 5px 15px;
+}
+
+.btn-modal {
+  width: 117px;
+  background-color: inherit;
+  color: white;
+  font-size: 17px;
+}
+
+/*modal*/

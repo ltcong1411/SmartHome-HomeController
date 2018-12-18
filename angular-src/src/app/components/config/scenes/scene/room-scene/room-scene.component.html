@@ -1,0 +1,46 @@
+<!-- room -->
+<div class="panel-body">
+  <div class="panel-body-content">
+    <div class="panel-body-icon">
+      <i class="fa fa-minus-circle" aria-hidden="true"
+      (click)="removeRoom()"
+      [hidden]="editHidden"></i>
+      <i class="fa fa-home" aria-hidden="true" [hidden]="!editHidden"></i>
+    </div>
+    <div class="btn-group panel-body-btn">
+      <a class="btn dropdown-toggle"> {{room.floorName}}</a>
+    </div>
+    <div class="panel-body-icon">
+      <i class="fa fa-caret-right" aria-hidden="true"></i>
+    </div>
+    <div class="btn-group panel-body-btn">
+      <a class="btn dropdown-toggle"> {{room.roomName}}</a>
+    </div>
+  </div>
+</div>
+
+<div class="panel-footer">
+  <div class="list-group">
+    <div class="device">
+      <div class="lights" >
+        <div class="light" *ngFor="let light of lightsOfScene">
+          <app-light-scene [sceneId]="sceneId" [light]="light" [editHidden]="editHidden" (remove)="removeLight($event)"></app-light-scene>
+        </div>
+        <div class="add-device" [hidden]="editHidden">
+          <div class="add-device-btn"
+                *ngIf="!!this.listOfLightsLeft.length"
+                (click)="listOfAddLightsHidden=!listOfAddLightsHidden">
+            <a class="list-group-item"><i class="fa fa-plus-square" aria-hidden="true"></i> Add device</a>
+          </div>
+          <div class="add-light"
+                *ngFor="let light of listOfLightsLeft"
+                [hidden]="listOfAddLightsHidden"
+                (click)="addLight(light)">
+              <a class="list-group-item"><i class="fa fa-plus-square" aria-hidden="true"></i> {{light.name}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- room -->

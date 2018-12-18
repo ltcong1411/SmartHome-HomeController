@@ -1,0 +1,42 @@
+<div class="checkIfDataAvailabel" *ngIf="isDataAvailable">
+  <div class="_1st-operand">
+    <app-relational-operation
+            [ruleId]="ruleId"
+            [operation]='_1stOperand'
+            [listOfDevicesInHouse]="listOfDevicesInHouse"
+            [listOfUsers]="listOfUsers"
+            [editHidden]="editHidden"
+            [addOperationHidden]="true"
+            (deleteOperationEvent)="deleteOperation('_1stOperand', $event)"
+            (addOperationEvent)="addOperation('_1stOperand')"
+            (updateOperationEvent)="updateOperation('_1stOperand', $event)">
+    </app-relational-operation>
+  </div>
+  <div class="operator">
+    <p [hidden]="!editHidden">{{operator}}</p>
+    <div class="dropdown" [hidden]="editHidden">
+      <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        {{operator}}
+        <span class="caret" ></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" [hidden]="editHidden">
+        <li (click)="selectOperator('OR')"><a>OR</a></li>
+        <li (click)="selectOperator('AND')"><a>AND</a></li>
+      </ul>
+    </div>
+  </div>
+  <hr/>
+  <div class="_2nd-operand">
+    <app-relational-operation
+            [ruleId]="ruleId"
+            [operation]='_2ndOperand'
+            [listOfDevicesInHouse]="listOfDevicesInHouse"
+            [listOfUsers]="listOfUsers"
+            [editHidden]="editHidden"
+            [addOperationHidden]="true"
+            (deleteOperationEvent)="deleteOperation('_2ndOperand', $event)"
+            (addOperationEvent)="addOperation('_2ndOperand')"
+            (updateOperationEvent)="updateOperation('_2ndOperand', $event)">
+    </app-relational-operation>
+  </div>
+</div>
